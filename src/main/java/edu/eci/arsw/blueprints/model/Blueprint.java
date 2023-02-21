@@ -85,6 +85,11 @@ public class Blueprint {
         
         return true;
     }
+
+    public void updatePoint(List<Point> update) {
+        this.points = update;
+
+    }
     
     
     
