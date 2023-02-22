@@ -30,7 +30,7 @@ public class BlueprintsServices {
     BlueprintsPersistence bpp;
 
     @Autowired
-    Filter filter = null;
+    Filter filter;
     
     public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException{
         bpp.saveBlueprint(bp);
@@ -48,6 +48,8 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if there is no such blueprint
      */
     public Blueprint getBlueprint(String author,String name) throws BlueprintNotFoundException{
+        Blueprint bpt = bpp.getBlueprint(author, name);
+        filter.filter(bpt);
         return bpp.getBlueprint(author, name);
     }
     

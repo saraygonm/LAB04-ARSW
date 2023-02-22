@@ -8,6 +8,7 @@ public class SubmuestreoFilter implements Filter{
 
     @Override
     public void filter(Blueprint bp) {
+        System.out.println("Filtrado Submuestreo");
         List<Point> pts0 = bp.getPoints();
         int i=0;
         ArrayList<Point> ps1 = new ArrayList();

@@ -11,6 +11,7 @@ public class RedundanceFilter implements Filter{
     
     @Override
     public void filter(Blueprint bp) {
+        System.out.println("Filtrado Redundancia");
         List<Point> pts0 = bp.getPoints();        
         ArrayList<Point> ps1 = new ArrayList();
         for(int i=0;i<pts0.size()-1;i++){
