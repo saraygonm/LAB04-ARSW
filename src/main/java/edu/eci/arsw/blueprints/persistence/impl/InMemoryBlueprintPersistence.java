@@ -68,16 +68,13 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     }
 
     @Override
-    public Set<Blueprint> getAllBlueprints() {
-        Set<Blueprint> bluePrinthash = new HashSet<Blueprint>();
-        for (Tuple<String, String> blueprint : blueprints.keySet()) {
-            if (!blueprint.getElem1().equals("_authorname_")) {
-                bluePrinthash.add(blueprints.get(blueprint));
-            }
+    public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException {
+        Set<Tuple<String, String>> keys=blueprints.keySet();
+        HashSet bps=new HashSet();
+        for (Tuple t : keys){
+        bps.add(blueprints.get(new Tuple<>((String)t.o1,(String)t.o2)));
         }
-        return bluePrinthash;
+        return bps;
     }
-
-    
-    
+        
 }
