@@ -10,15 +10,18 @@ import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.*;
 
 /**
  *
  * @author hcadavid
  */
+@Service("inMemoryBlueprintPersistence")
 public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
-
     private final Map<Tuple<String,String>,Blueprint> blueprints=new HashMap<>();
 
     public InMemoryBlueprintPersistence() {
@@ -44,6 +47,30 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         return blueprints.get(new Tuple<>(author, bprintname));
     }
 
-    
-    
+    @Override
+    /*
+    Metodo que busca en el mapa blueprints y devuelve todos los Blueprints que pertenecen a un autor específico
+     */
+    public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException {
+        Set<Blueprint> Author=new HashSet<Blueprint>(); // Crea un nuevo conjunto (Set) vacío de objetos 'Blueprint'
+        for(Tuple<String,String> tupla : blueprints.keySet()){
+            if(tupla.getElem1().equals(author)){
+                Author.add(blueprints.get(tupla));
+            }
+        }
+        return Author;
+    }
+    @Override
+    /*
+    metodo que recorre todas las keys y objetos del mapa blueprints,para almacenarlos en un conjunto llamado Author para devolverlos.
+     */
+    public Set<Blueprint> getBlueprintByAll() throws BlueprintNotFoundException {
+        Set<Blueprint> Author=new HashSet<Blueprint>(); //almacena los objetos Blueprint.
+        for(Tuple<String,String> tupla : blueprints.keySet()){
+            Author.add(blueprints.get(tupla));
+        }
+        return Author;
+    }
+
+
 }

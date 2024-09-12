@@ -19,6 +19,7 @@ public class Point {
         this.y = y;
     }
 
+
     public Point() {
     }    
     
@@ -37,7 +38,24 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
-    
-    
-    
+
+    /**
+     * Este metodo Compara las coordenadas y determina si son iguales.
+     * @param punto Punto con el que se desea comprar.
+     * @return true si los puntos son iguales.
+     */
+    public boolean compare(Point punto){
+        if(this.x == punto.getX() && this.y == punto.getY()){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Punto: (" + "x = " + x + ", y = " + y + ')';
+    }
 }
+    
+    
+

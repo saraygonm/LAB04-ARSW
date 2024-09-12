@@ -27,8 +27,11 @@ public class Blueprint {
     }
 
     public Blueprint() {
-    }    
-    
+    }
+
+    public Blueprint(String saray, String saraygonm, ArrayList<Point> pts) {
+    }
+
     public String getName() {
         return name;
     }

@@ -2,7 +2,12 @@
 
 ## Arquitecturas de Software
 
+#### AUTORES:
+- [Saray Alieth Mendivelso](https://github.com/saraygonm)
+- [Milton Andres Gutierrez](https://github.com/MiltonGutierrez)
+
 # Componentes y conectores - Parte I.
+
 
 El ejercicio se debe traer terminado para el siguiente laboratorio (Parte II).
 
@@ -17,15 +22,52 @@ En este ejercicio se va a construír un modelo de clases para la capa lógica de
 
 1. Configure la aplicación para que funcione bajo un esquema de inyección de dependencias, tal como se muestra en el diagrama anterior.
 
+Definiciones de las etiquetas
+- `@Autowired` le dice a Spring que debe "inyectar" o "proveer" automáticamente un objeto cuando se necesita.
+  En términos más simples es un asistente que trae la herramienta correcta cuando le dicimos que lo que necesitamos.
+- `@Service` marca una clase como un "servicio" dentro de la aplicación. Es una manera de decirle al Spring, "Esta clase hace trabajo de
+  servicio y debe ser gestionada por el contenedor de Spring.
+- `@Qualifier` en Spring sirve para decirle al sistema cuál versión de un objeto usar cuando hay varias opciones disponibles.
+- Esto ayuda a evitar que se confunda al momento de "inyectar" esa dependencia.
+
 
 	Lo anterior requiere:
 
-	* Agregar las dependencias de Spring.
-	* Agregar la configuración de Spring.
+	* Agregar las dependencias de Spring. //dependencia es simplemente un objeto que una clase necesita para funcionar
+	* Agregar la configuración de Spring. //conjunto de instrucciones y definiciones que le dicen a Spring cómo crear, configurar y gestionar los objetos (beans) de la app. mediante archivos XML
 	* Configurar la aplicación -mediante anotaciones- para que el esquema de persistencia sea inyectado al momento de ser creado el bean 'BlueprintServices'.
 
+1) Agregamos la etiqueta `@Service` a la clase `InMemoryBlueprintPersistence`
+<p align="center">
+<img src="img/1/1.png" alt="@Service" width="700px">
+</p>
 
-2. Complete los operaciones getBluePrint() y getBlueprintsByAuthor(). Implemente todo lo requerido de las capas inferiores (por ahora, el esquema de persistencia disponible 'InMemoryBlueprintPersistence') agregando las pruebas correspondientes en 'InMemoryPersistenceTest'.
+2) utilizando las etiquetas `@Autowired` y `@Qualifier`, indicamos que la clase `BlueprintServices` haga referencia a `InMemoryBlueprintPersistence`.
+<p align="center">
+<img src="img/1/1.1.png" alt="etiquetas" width="700px">
+</p>
+
+2. Complete las operaciones getBluePrint() y getBlueprintsByAuthor(). Implemente todo lo requerido de las capas inferiores (por ahora, el esquema de persistencia disponible 'InMemoryBlueprintPersistence') agregando las pruebas correspondientes en 'InMemoryPersistenceTest'.
+   
+- Se completa el método `getBlueprintsByAuthor()` en la clase `InMemoryBlueprintPersistence.java` el método busca en un conjunto de Blueprints todos aquellos que están asociados con un
+autor específico y los devuelve en un conjunto. Siendo útil cuando se necesite filtrar y obtener solo los Blueprints relacionados con un autor dado.
+
+<p align="center">
+<img src="img/2/2.png" alt="etiquetas" width="700px">
+</p>
+
+ - Estos métodos, en conjunto, proporcionan la funcionalidad para buscar y recuperar Blueprints basados en criterios de autor y nombre, apoyando 
+la gestión de una colección de Blueprints en el sistema.
+
+<p align="center">
+<img src="img/2/2.1.png" alt="etiquetas" width="700px">
+</p>
+
+- Pruebas correspondientes en 'InMemoryPersistenceTest' para verificar que el metodo crado funcione bien
+
+<p align="center">
+<img src="img/2/test.png" alt="etiquetas" width="700px">
+</p>
 
 3. Haga un programa en el que cree (mediante Spring) una instancia de BlueprintServices, y rectifique la funcionalidad del mismo: registrar planos, consultar planos, registrar planos específicos, etc.
 
