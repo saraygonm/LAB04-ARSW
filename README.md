@@ -4,6 +4,10 @@
 
 #### AUTORES:
 - [Saray Alieth Mendivelso](https://github.com/saraygonm)
+<<<<<<< HEAD
+=======
+
+>>>>>>> a901ec0e3d2a4e622edce6de35ee6290e700cf0d
 
 # Componentes y conectores - Parte I.
 
@@ -14,6 +18,8 @@ El ejercicio se debe traer terminado para el siguiente laboratorio (Parte II).
 
 
 ## Antes de hacer este ejercicio, realice [el ejercicio introductorio al manejo de Spring y la configuración basada en anotaciones](https://github.com/ARSW-ECI/Spring_LightweightCont_Annotation-DI_Example).
+
+- [Link del repositorio solucionado.](https://github.com/saraygonm/LAB04.2-ARSW.git)
 
 En este ejercicio se va a construír un modelo de clases para la capa lógica de una aplicación que permita gestionar planos arquitectónicos de una prestigiosa compañia de diseño. 
 
