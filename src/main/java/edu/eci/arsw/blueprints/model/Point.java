@@ -21,7 +21,7 @@ public class Point {
 
 
     public Point() {
-    }    
+    }
     
     public int getX() {
         return x;

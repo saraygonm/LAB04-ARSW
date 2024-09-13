@@ -88,7 +88,7 @@ public class InMemoryPersistenceTest {
         Blueprint bp1=new Blueprint("Saray", "Saraygonm",pts);
 
         Point[] pts2=new Point[]{new Point(3, 5),new Point(14, 15)};
-        Blueprint bp2=new Blueprint("Milton", "MiltonG",pts2);
+        Blueprint bp2=new Blueprint("Alieth", "AliethG",pts2);
 
         Point[] pts3=new Point[]{new Point(42, 50),new Point(71, 100)};
         Blueprint bp3=new Blueprint("Juana", "Juanita",pts3);

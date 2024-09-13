@@ -52,7 +52,7 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     Metodo que busca en el mapa blueprints y devuelve todos los Blueprints que pertenecen a un autor específico
      */
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException {
-        Set<Blueprint> Author=new HashSet<Blueprint>(); // Crea un nuevo conjunto (Set) vacío de objetos 'Blueprint'
+        Set<Blueprint> Author=new HashSet<Blueprint>();
         for(Tuple<String,String> tupla : blueprints.keySet()){
             if(tupla.getElem1().equals(author)){
                 Author.add(blueprints.get(tupla));
@@ -71,6 +71,4 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         }
         return Author;
     }
-
-
 }

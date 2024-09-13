@@ -21,15 +21,18 @@ public class Blueprint {
         points=Arrays.asList(pnts);
     }
          
+    public Blueprint(String author, String name, ArrayList<Point> pts){
+        this.author=author;
+        this.name=name;
+        points=pts;
+    }
+
     public Blueprint(String author, String name){
         this.name=name;
         points=new ArrayList<>();
     }
 
     public Blueprint() {
-    }
-
-    public Blueprint(String saray, String saraygonm, ArrayList<Point> pts) {
     }
 
     public String getName() {
